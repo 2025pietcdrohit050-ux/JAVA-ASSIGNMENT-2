@@ -1,1 +1,70 @@
+import java.io.*;
 
+class Student
+{
+    int rollNo;
+    String name;
+    int marks1, marks2, marks3;
+
+    void accept(BufferedReader br) throws IOException
+    {
+        System.out.print("Enter Roll No: ");
+        rollNo = Integer.parseInt(br.readLine());
+
+        System.out.print("Enter Name: ");
+        name = br.readLine();
+
+        System.out.print("Enter Marks 1: ");
+        marks1 = Integer.parseInt(br.readLine());
+
+        System.out.print("Enter Marks 2: ");
+        marks2 = Integer.parseInt(br.readLine());
+
+        System.out.print("Enter Marks 3: ");
+        marks3 = Integer.parseInt(br.readLine());
+    }
+
+    void result()
+    {
+        int total = marks1 + marks2 + marks3;
+        double percentage = total / 3.0;
+
+        System.out.println("Roll No: " + rollNo);
+        System.out.println("Name: " + name);
+        System.out.println("Total Marks: " + total);
+        System.out.println("Percentage: " + percentage);
+
+        if (percentage >= 90)
+            System.out.println("Grade: A+");
+        else if (percentage >= 80)
+            System.out.println("Grade: A");
+        else if (percentage >= 70)
+            System.out.println("Grade: B");
+        else if (percentage >= 60)
+            System.out.println("Grade: C");
+        else if (percentage >= 50)
+            System.out.println("Grade: D");
+        else
+            System.out.println("Grade: F");
+    }
+
+    public static void main(String args[]) throws IOException
+    {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        Student s1 = new Student();
+        Student s2 = new Student();
+
+        System.out.println("Enter first student details");
+        s1.accept(br);
+
+        System.out.println("\nEnter second student details");
+        s2.accept(br);
+
+        System.out.println("\nFirst Student Result");
+        s1.result();
+
+        System.out.println("\nSecond Student Result");
+        s2.result();
+    }
+}
