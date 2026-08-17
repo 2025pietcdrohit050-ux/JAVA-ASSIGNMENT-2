@@ -1,1 +1,53 @@
+class BankAccount
+{
+    int accountNumber;
+    String accountHolderName;
+    double balance;
 
+    BankAccount()
+    {
+        accountNumber = 0;
+        accountHolderName = "Unknown";
+        balance = 0;
+    }
+
+    BankAccount(int no, String name, double bal)
+    {
+        accountNumber = no;
+        accountHolderName = name;
+        balance = bal;
+    }
+
+    void deposit(double amount)
+    {
+        balance = balance + amount;
+    }
+
+    void withdraw(double amount)
+    {
+        if(amount <= balance)
+            balance = balance - amount;
+        else
+            System.out.println("Insufficient Balance");
+    }
+
+    void displayAccount()
+    {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Account Holder: " + accountHolderName);
+        System.out.println("Balance: " + balance);
+    }
+
+    public static void main(String args[])
+    {
+        BankAccount a1 = new BankAccount();
+        BankAccount a2 = new BankAccount(101, "Rahul", 25000);
+
+        a1.displayAccount();
+
+        a2.deposit(5000);
+        a2.withdraw(3000);
+
+        a2.displayAccount();
+    }
+}
